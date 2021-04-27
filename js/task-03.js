@@ -16,17 +16,14 @@ const images = [
   },
 ];
 
+const galleryEl = document.querySelector('#gallery');
 
-
-const galleryEl = document.querySelector("#gallery");
-
-const createGalleryList = (array) => {
-    galleryEl.classList.add('gallery-style');
-    const imgEl = ({ url, alt }) => `<li><img src='${url}' alt='${alt}' width='300' height = '220'></li>`;
-    const galleryList = images.map(imgEl);
-    galleryEl.insertAdjacentHTML('beforeend', galleryList);
-}
-
+const createGalleryList = images => {
+  galleryEl.classList.add('gallery-style');
+  const imgEl = ({ url, alt }) =>
+    `<li><img src='${url}' alt='${alt}' width='300' height = '220'></li>`;
+  const galleryList = images.map(imgEl).join(' ');
+  galleryEl.insertAdjacentHTML('beforeend', galleryList);
+};
 
 createGalleryList(images);
-
